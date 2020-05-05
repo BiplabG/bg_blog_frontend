@@ -6,7 +6,7 @@ import CreateSection from "../operations/CreateSection"
 function Home(props) {
     return(
         <Fragment>
-            <CreateSection/>
+            {sessionStorage.getItem('jwt') ? <CreateSection/> : null}
             {props.overview.map((section) => <Section sec={section} key={section._id.$oid}/>)}
         </Fragment>
     )

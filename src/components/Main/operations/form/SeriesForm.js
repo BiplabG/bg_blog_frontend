@@ -5,6 +5,8 @@ import Button from "@material-ui/core/Button"
 import TextField from "@material-ui/core/TextField"
 import { makeStyles } from "@material-ui/core/styles"
 
+import ImageUpload from "./ImageUpload"
+
 const useStyles = makeStyles(() => ({
     form:{
         marginLeft: 20,
@@ -43,7 +45,7 @@ function SeriesForm(props){
     const classes = useStyles()
     return (
         <Fragment>
-            <form className={classes.form}>
+            <form className={classes.form} encType='multipart/form-data'>
                 <TextField 
                     required
                     label="Name"
@@ -64,6 +66,7 @@ function SeriesForm(props){
                     className={classes.descriptionField}
                     onChange={handleChange}
                 />
+                <ImageUpload/>
             </form>
             <DialogActions>
                 <Button autoFocus onClick={props.handleClose} color="primary">

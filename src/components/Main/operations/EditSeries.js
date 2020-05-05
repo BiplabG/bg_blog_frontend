@@ -23,9 +23,10 @@ function EditSeries(props) {
         }
         fetch("/series/".concat(props.series._id.$oid), {
             method:'PUT',
-            headers: {
+            headers: new Headers({
                 'Content-type':'application/json',
-            },
+                'Authorization':'Bearer ' + sessionStorage.getItem('jwt')
+            }),
             body: JSON.stringify(formattedSeries),
         })
         .then((response)=>{

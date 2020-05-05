@@ -22,16 +22,19 @@ function Series(props) {
             <Typography variant="h5">
                 <Link to={"/series/".concat(props.ser._id.$oid)}>{props.ser.name}</Link>
             </Typography>
-            <EditSeries series={props.ser} />
+            {sessionStorage.getItem('jwt') ? <EditSeries series={props.ser} /> : null }
             <Grid container className={classes.root} spacing={2}>
                 {props.ser.blogs.map( (blog) =>  { return(
                     <BlogPaper key={blog._id.$oid} blog={blog}/>
                 )})}
-                <Grid item>
-                    <Link to={`/content/${props.ser._id.$oid}/create_blog`}>
-                        <Button variant="outlined">Add new blog</Button>
-                    </Link>
-                </Grid>
+                {sessionStorage.getItem('jwt') ? 
+                    <Grid item>
+                        <Link to={`/content/${props.ser._id.$oid}/create_blog`}>
+                            <Button variant="outlined">Add new blog</Button>
+                        </Link>
+                    </Grid>
+                    : null
+                }
             </Grid>
         </div>
     )

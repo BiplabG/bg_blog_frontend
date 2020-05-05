@@ -9,8 +9,8 @@ function Section(props) {
     return (
         <div key={props.sec._id.$oid}>
             <Typography variant="h3">{props.sec.name}</Typography>
-            <EditSection section={props.sec}/>
-            <CreateSeries section_id={props.sec._id.$oid} />
+            {sessionStorage.getItem('jwt') ? <EditSection section={props.sec}/> : null }
+            {sessionStorage.getItem('jwt') ? <CreateSeries section_id={props.sec._id.$oid} /> : null }
             
             {props.sec.series.map( (ser) => { return(
                 <Series ser={ser} key={ser._id.$oid}/>

@@ -5,6 +5,8 @@ import Button from "@material-ui/core/Button"
 import TextField from "@material-ui/core/TextField"
 import { makeStyles } from "@material-ui/core/styles"
 
+import ImageUpload from "./ImageUpload"
+
 const useStyles = makeStyles(() => ({
     form:{
         marginLeft: 20,
@@ -64,6 +66,8 @@ function SectionForm(props){
                     className={classes.descriptionField}
                     onChange={handleChange}
                 />
+                {props.section ? <ImageUpload section_id={props.section._id.$oid} /> : null}
+                
             </form>
             <DialogActions>
                 <Button autoFocus onClick={props.handleClose} color="primary">

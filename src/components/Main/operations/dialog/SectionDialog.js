@@ -5,7 +5,7 @@ import DialogTitle from "@material-ui/core/DialogTitle"
 
 import SectionForm from "../form/SectionForm"
 
-function CreateSectionDialog(props){
+function SectionDialog(props){
     return (
         <Dialog
             open={props.open}
@@ -23,5 +23,5 @@ function CreateSectionDialog(props){
     )
 }
 
-export default CreateSectionDialog
+export default SectionDialog
 

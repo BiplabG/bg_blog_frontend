@@ -35,6 +35,7 @@ function EditBlogContent(props) {
             method:'PUT',
             headers:{
                 'Content-type':'application/json',
+                'Authorization':'Bearer ' + sessionStorage.getItem('jwt')
             },
             body: JSON.stringify(formattedContent)
         })

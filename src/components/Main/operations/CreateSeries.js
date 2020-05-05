@@ -26,6 +26,7 @@ function CreateSeries(props){
             method:'POST',
             headers: {
                 'Content-type':'application/json',
+                'Authorization':'Bearer ' + sessionStorage.getItem('jwt')
             },
             body: JSON.stringify(formattedSeries),
         })

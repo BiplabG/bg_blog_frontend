@@ -23,9 +23,12 @@ function ViewBlogContent(props) {
         <article>
             <div className={classes.titleSection}>
                 <Typography variant="h2">{props.blog.title}</Typography>
-                <Button onClick={props.toggleMode}>
-                    <EditIcon/>
-                </Button>
+                {sessionStorage.getItem('jwt') ? 
+                    <Button onClick={props.toggleMode}>
+                        <EditIcon/>
+                    </Button>
+                    : null
+                }
             </div>
             <Typography variant="caption">{date_created.toLocaleDateString()} {date_created.toLocaleTimeString()}</Typography>
             <br/>
